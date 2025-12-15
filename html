@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="дз6.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-wrapper">
+        <div class="cart" id="cart-btn">
+            <img src="shopping-cart.png" alt="cart">
+            <span id="cart-counter" class="hide">0</span>
+        </div>
+    </div>
+</header>
+
+<div class="cart-view-wrapper hide" id="cart-view-wrapper">
+
+    <div class="blur" id="cart-blur"></div>
+
+    <div id="cart-view">
+        <div class="cart-header">
+            <span>My Cart</span>
+            <button id="cart-view-close" class="close-btn"></button>
+        </div>
+
+        <div class="cart-view-list" id="cart-items"></div>
+
+        <div class="total-price">
+            Total: <span id="cart-total">0</span> $
+        </div>
+    </div>
+</div>
+
+<div class="items-container">
+
+    <aside class="filters">
+
+        <div class="filter-block search">
+            <label>Search</label>
+            <input type="text" id="search-input">
+        </div>
+
+        <div class="filter-block category">
+            <label>Category</label>
+            <select id="category-filter">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothes">Clothes</option>
+                <option value="home">Home</option>
+            </select>
+        </div>
+
+        <div class="filter-block price">
+            <label>Price</label>
+            <input type="number" id="price-min" placeholder="Min">
+            <span>-</span>
+            <input type="number" id="price-max" placeholder="Max">
+        </div>
+
+        <div class="filter-block rating">
+            <label>Rating</label>
+            <select id="rating-filter">
+                <option value="0">Any</option>
+                <option value="5">5★</option>
+                <option value="4">4★+</option>
+                <option value="3">3★+</option>
+            </select>
+        </div>
+
+        <div class="filter-block extra-functions">
+            <label>Extra Filters</label>
+            <div class="extra-functions-container" id="extra-options">
+                <label><input type="checkbox" value="new"> New</label>
+                <label><input type="checkbox" value="discount"> Discount</label>
+                <label><input type="checkbox" value="popular"> Popular</label>
+            </div>
+        </div>
+
+        <button id="apply-filters" class="apply-btn">Apply</button>
+
+    </aside>
+
+    <main class="items" id="items-list">
+
+        <div class="item"
+             data-id="1"
+             data-category="electronics"
+             data-rating="5"
+             data-price="40"
+             data-available="10">
+
+            <img class="item-image" src="завантаження.jpg" alt="F-foxie">
+
+            <div class="item-title">F-foxie</div>
+            <div class="item-short-description">
+                • High quality materials<br>
+                • Fast delivery 1–3 days<br>
+                • Warranty included
+            </div>
+
+            <div class="item-bottom">
+                <div class="rating-stars">★★★★★</div>
+                <div class="available-count">10 pcs</div>
+                <div class="price">40$</div>
+                <button class="item-add">Add</button>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<script src="щщось.js"></script>
+
+</body>
+</html>
