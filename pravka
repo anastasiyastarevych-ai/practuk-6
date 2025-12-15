@@ -1,0 +1,580 @@
+html::::
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="дз6.css">
+</head>
+
+<body>
+
+<header>
+    <div class="header-wrapper">
+        <div class="cart" id="cart-btn">
+            <img src="shopping-cart.png" alt="cart">
+            <span id="cart-counter" class="hide">0</span>
+        </div>
+    </div>
+</header>
+
+<div class="cart-view-wrapper hide" id="cart-view-wrapper">
+
+    <div class="blur" id="cart-blur"></div>
+
+    <div id="cart-view">
+        <div class="cart-header">
+            <span>My Cart</span>
+            <button id="cart-view-close" class="close-btn"></button>
+        </div>
+
+        <div class="cart-view-list" id="cart-items"></div>
+
+        <div class="total-price">
+            Total: <span id="cart-total">0</span> $
+        </div>
+    </div>
+</div>
+
+<div class="items-container">
+
+    <aside class="filters">
+
+        <div class="filter-block search">
+            <label>Search</label>
+            <input type="text" id="search-input">
+        </div>
+
+        <div class="filter-block category">
+            <label>Category</label>
+            <select id="category-filter">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothes">Clothes</option>
+                <option value="home">Home</option>
+            </select>
+        </div>
+
+        <div class="filter-block price">
+            <label>Price</label>
+            <input type="number" id="price-min" placeholder="Min">
+            <span>-</span>
+            <input type="number" id="price-max" placeholder="Max">
+        </div>
+
+        <div class="filter-block rating">
+            <label>Rating</label>
+            <select id="rating-filter">
+                <option value="0">Any</option>
+                <option value="5">5★</option>
+                <option value="4">4★+</option>
+                <option value="3">3★+</option>
+            </select>
+        </div>
+
+        <div class="filter-block extra-functions">
+            <label>Extra Filters</label>
+            <div class="extra-functions-container" id="extra-options">
+                <label><input type="checkbox" value="new"> New</label>
+                <label><input type="checkbox" value="discount"> Discount</label>
+                <label><input type="checkbox" value="popular"> Popular</label>
+            </div>
+        </div>
+
+        <button id="apply-filters" class="apply-btn">Apply</button>
+
+    </aside>
+
+    <main class="items" id="items-list">
+
+        <div class="item"
+             data-id="1"
+             data-category="electronics"
+             data-rating="5"
+             data-price="40"
+             data-available="10">
+
+            <img class="item-image" src="завантаження.jpg" alt="F-foxie">
+
+            <div class="item-title">F-foxie</div>
+            <div class="item-short-description">
+                • High quality materials<br>
+                • Fast delivery 1–3 days<br>
+                • Warranty included
+            </div>
+
+            <div class="item-bottom">
+                <div class="rating-stars">★★★★★</div>
+                <div class="available-count">10 pcs</div>
+                <div class="price">40$</div>
+                <button class="item-add">Add</button>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<script src="щщось.js"></script>
+
+</body>
+</html>
+
+css::::
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f8f5f2;
+    font-family: Arial, sans-serif;
+}
+
+.lds-dual-ring {
+    width: 80px;
+    height: 80px;
+    border: 6px solid #abbd81;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+header {
+    height: 60px;
+    background: #fff;
+    border-bottom: 2px solid #444;
+    display: flex;
+    align-items: center;
+}
+
+.header-wrapper {
+    width: min(1400px, 100%);
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart {
+    position: relative;
+    width: 36px;
+    cursor: pointer;
+}
+
+.cart img { 
+    width: 100%; 
+}
+
+#cart-counter {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    background: black;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cart-counter.hide { 
+    display: none; 
+}
+
+.cart-view-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+}
+
+.cart-view-wrapper.hide { 
+    display: none; 
+}
+
+.blur {
+    position: absolute;
+    inset: 0;
+    background: #0004;
+}
+
+#cart-view {
+    width: clamp(320px, 80%, 700px);
+    height: clamp(400px, 80vh, 650px);
+    background: #f2f2f2;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 0 15px #444;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    width: 21px;
+    height: 28px;
+    background-image: url("close.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-view-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: grid;
+    gap: 12px;
+}
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+}
+
+.items-container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.filters {
+    width: 260px;
+    border-right: 2px solid #000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f1ede8;
+}
+
+.filter-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.price {
+    flex-direction: row;
+    align-items: center;
+}
+
+.price input { 
+    width: 70px; 
+}
+
+.extra-functions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.extra-functions-container label {
+    padding: 6px 10px;
+    background: #c0ae96;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.apply-btn {
+    padding: 10px;
+    background: #c79e68;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.items {
+    flex-grow: 1;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    overflow-y: auto;
+}
+
+.item {
+    background: white;
+    border-radius: 14px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+}
+
+.item.hide { 
+    display: 
+    none; 
+}
+
+/* .item-card {
+  max-width: 280px;
+  width: 100%;
+} */
+
+
+.item-image {
+    height: 270px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+.item-title { 
+    margin: 10px 0 5px; 
+    font-size: 18px; 
+}
+
+.item-short-description { 
+    font-size: 14px; 
+    height: 52px; 
+    overflow: hidden; 
+}
+
+.item-bottom {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "rating available"
+        "price add";
+    gap: 10px;
+}
+
+.rating-stars { 
+    grid-area: rating; 
+}
+
+.available-count { 
+    grid-area: available; 
+}
+
+.price { 
+    grid-area: price; 
+}
+
+.item-add {
+    grid-area: add;
+    padding: 6px;
+    background: #e19e4e;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.item-add.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+js::::
+const itemsList = document.getElementById("items-list");
+const cartBtn = document.getElementById("cart-btn");
+const cartViewWrapper = document.getElementById("cart-view-wrapper");
+const cartClose = document.getElementById("cart-view-close");
+const cartBlur = document.getElementById("cart-blur");
+const cartItemsContainer = document.getElementById("cart-items");
+const cartCounter = document.getElementById("cart-counter");
+const cartTotal = document.getElementById("cart-total");
+
+const searchInput = document.getElementById("search-input");
+const categoryFilter = document.getElementById("category-filter");
+const ratingFilter = document.getElementById("rating-filter");
+const priceMin = document.getElementById("price-min");
+const priceMax = document.getElementById("price-max");
+const extraOptions = document.getElementById("extra-options");
+const applyFiltersBtn = document.getElementById("apply-filters");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || {};
+
+function updateCartView() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
+    let count = 0;
+
+    Object.values(cart).forEach(item => {
+        total += item.price * item.qty;
+        count += item.qty;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.style.display = "flex";
+        div.style.justifyContent = "space-between";
+        div.style.alignItems = "center";
+        div.style.padding = "10px";
+        div.style.background = "#fff";
+        div.style.borderRadius = "10px";
+
+        div.innerHTML = `
+            <div>
+                <img 
+                src="${item.image}" 
+                alt="${item.title}"
+                style="
+                    width:166px;        
+                    height:210px;       
+                    object-fit:cover;   
+                    border-radius:17px;  
+                    margin-top:-95%;
+                    margin-left:32%;
+                "
+                >
+                <div><b>${item.title}</b></div>
+                <div>Price: ${item.price}$</div>
+                <div>Available: ${item.available}</div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px">
+                <button class="minus" data-id="${item.id}">-</button>
+                <span>${item.qty}</span>
+                <button class="plus" data-id="${item.id}">+</button>
+                <button class="remove" data-id="${item.id}" style="color:red">x</button>
+            </div>
+        `;
+
+        cartItemsContainer.appendChild(div);
+    });
+
+    cartCounter.textContent = count;
+    cartTotal.textContent = total.toFixed(2);
+
+    cartCounter.classList.toggle("hide", count === 0);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(itemEl) {
+    const id = itemEl.dataset.id;
+    const price = Number(itemEl.dataset.price);
+    const available = Number(itemEl.dataset.available);
+
+    if (!cart[id]) {
+        cart[id] = {
+            id,
+            title: itemEl.querySelector(".item-title").textContent,
+            price,
+            qty: 1,
+            available: available - 1,
+            image: itemEl.querySelector(".item-image").src
+        };
+
+    } else {
+        if (cart[id].available <= 0) return;
+        cart[id].qty++;
+        cart[id].available--;
+    }
+
+    if (cart[id].available <= 0) {
+        itemEl.querySelector(".item-add").classList.add("disabled");
+    }
+
+    updateCartView();
+}
+
+cartItemsContainer.addEventListener("click", e => {
+    const id = e.target.dataset.id;
+    if (!id) return;
+
+    if (e.target.classList.contains("plus")) {
+        if (cart[id].available > 0) {
+            cart[id].qty++;
+            cart[id].available--;
+        }
+    }
+    if (e.target.classList.contains("minus")) {
+        cart[id].qty--;
+        cart[id].available++;
+        if (cart[id].qty === 0) delete cart[id];
+    }
+    if (e.target.classList.contains("remove")) {
+        delete cart[id];
+    }
+
+    enableButtonsAccordingToAvailable();
+    updateCartView();
+});
+
+function enableButtonsAccordingToAvailable() {
+    document.querySelectorAll(".item").forEach(item => {
+        const id = item.dataset.id;
+        const btn = item.querySelector(".item-add");
+        if (!cart[id] || cart[id].available > 0) {
+            btn.classList.remove("disabled");
+        } else {
+            btn.classList.add("disabled");
+        }
+    });
+}
+
+enableButtonsAccordingToAvailable();
+updateCartView();
+
+function applyFilters() {
+    const search = searchInput.value.toLowerCase();
+    const category = categoryFilter.value;
+    const rating = Number(ratingFilter.value);
+    const minPrice = Number(priceMin.value) || 0;
+    const maxPrice = Number(priceMax.value) || Infinity;
+
+    const extra = [...extraOptions.querySelectorAll("input:checked")]
+        .map(ch => ch.value);
+
+    document.querySelectorAll(".item").forEach(item => {
+        const title = item.querySelector(".item-title").textContent.toLowerCase();
+        const itemCategory = item.dataset.category;
+        const itemRating = Number(item.dataset.rating);
+        const itemPrice = Number(item.dataset.price);
+
+        let show = true;
+
+        if (!title.includes(search)) show = false;
+        if (category !== "all" && itemCategory !== category) show = false;
+        if (itemRating < rating) show = false;
+        if (itemPrice < minPrice || itemPrice > maxPrice) show = false;
+
+        extra.forEach(option => {
+            if (!item.dataset[option]) show = false;
+        });
+
+        item.classList.toggle("hide", !show);
+    });
+}
+
+applyFiltersBtn.addEventListener("click", applyFilters);
+
+cartBtn.onclick = () => {
+    cartViewWrapper.classList.remove("hide");
+};
+cartClose.onclick = () => {
+    cartViewWrapper.classList.add("hide");
+};
+cartBlur.onclick = () => {
+    cartViewWrapper.classList.add("hide");
+};
+
+document.querySelectorAll(".item-add").forEach(btn => {
+    btn.addEventListener("click", e => {
+        const item = e.target.closest(".item");
+        addToCart(item);
+    });
+});
