@@ -1,0 +1,131 @@
+[
+  {
+    "id": "7b61defa-b8e6-4340-8d36-a47287793508",
+    "name": "Lorem Ipsum Tablet",
+    "price": 1114.96,
+    "currency": "USD",
+    "availableCount": 48,
+    "rating": 3.2,
+    "discount": 10,
+    "category": "accessories",
+    "shortDescription": "High quality tablet with gesture control and wireless charging.",
+    "longDescription": "Consectetur labore adipiscing incididunt ut sit sit dolore dolore tempor lorem do tempor incididunt.",
+    "imageUrl": "https://images.unsplash.com/photo-1624823183493-ed5832f48f18",
+    "extraFunctions": [
+      "Gesture Control",
+      "Customizable EQ",
+      "App Integration",
+      "Water Resistant",
+      "Sleep Mode",
+      "Wireless Charging"
+    ]
+  },
+  {
+    "id": "b5c58a20-17a7-474d-b913-b76d1a9fd4ca",
+    "name": "Lorem Ipsum Laptop",
+    "price": 775.91,
+    "currency": "USD",
+    "availableCount": 52,
+    "rating": 2.8,
+    "discount": 13,
+    "category": "audio",
+    "shortDescription": "Powerful laptop with noise cancellation and fast charging.",
+    "longDescription": "Elit consectetur ut dolor eiusmod sed incididunt labore eiusmod et labore dolor.",
+    "imageUrl": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb",
+    "extraFunctions": [
+      "Long Battery Life",
+      "USB-C Port",
+      "Wi-Fi Connectivity",
+      "Noise Cancellation",
+      "Multi-Device Pairing",
+      "Fast Charging",
+      "Customizable EQ"
+    ]
+  },
+  {
+    "id": "8061c218-e289-4380-b643-28afb8865e46",
+    "name": "Lorem Ipsum Phone",
+    "price": 1390.03,
+    "currency": "USD",
+    "availableCount": 41,
+    "rating": 2.4,
+    "discount": 5,
+    "category": "audio",
+    "shortDescription": "Smartphone with LED display and Bluetooth 5.0.",
+    "longDescription": "Do dolor amet do ipsum dolor labore lorem lorem sed.",
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1677838847804-4054143fb91a",
+    "extraFunctions": [
+      "LED Display",
+      "Bluetooth 5.0",
+      "Auto Power Off",
+      "App Integration",
+      "Sleep Mode",
+      "Gesture Control"
+    ]
+  },
+  {
+    "id": "7c8e0113-b90f-4858-a7d8-ea25c8b70a1e",
+    "name": "Lorem Ipsum Tablet",
+    "price": 1147.83,
+    "currency": "USD",
+    "availableCount": 80,
+    "rating": 3.6,
+    "discount": 8,
+    "category": "computers",
+    "shortDescription": "Tablet with voice assistant and multi-device pairing.",
+    "longDescription": "Do dolore do magna consectetur tempor dolor sed sed labore aliqua lorem dolore do.",
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1687892170417-f9a11a402ef7",
+    "extraFunctions": [
+      "Bluetooth 5.0",
+      "App Integration",
+      "Noise Cancellation",
+      "Voice Assistant Support",
+      "Multi-Device Pairing",
+      "Wi-Fi Connectivity",
+      "Gesture Control"
+    ]
+  },
+  {
+    "id": "d067397f-5620-45b5-bfed-ff2552ac31a2",
+    "name": "Lorem Ipsum Camera",
+    "price": 232.95,
+    "currency": "USD",
+    "availableCount": 39,
+    "rating": 1.8,
+    "discount": 15,
+    "category": "accessories",
+    "shortDescription": "Compact camera with wireless charging and gesture control.",
+    "longDescription": "Sed consectetur eiusmod eiusmod magna lorem adipiscing consectetur dolor et sit.",
+    "imageUrl": "https://images.unsplash.com/photo-1677145503731-87bfe49e5c67",
+    "extraFunctions": [
+      "Wireless Charging",
+      "Gesture Control",
+      "Ambient Sound Mode",
+      "Bluetooth 5.0",
+      "Auto Power Off",
+      "Customizable EQ"
+    ]
+  },
+  {
+    "id": "61a80f8e-b4f1-458e-90d2-3887c088d38e",
+    "name": "Lorem Ipsum Speaker",
+    "price": 1760.97,
+    "currency": "USD",
+    "availableCount": 76,
+    "rating": 2.7,
+    "discount": 2,
+    "category": "mobile",
+    "shortDescription": "Portable speaker with GPS and voice assistant.",
+    "longDescription": "Tempor incididunt do labore do eiusmod labore lorem eiusmod adipiscing amet dolor.",
+    "imageUrl": "https://images.unsplash.com/photo-1610985725707-bb0766bf123b",
+    "extraFunctions": [
+      "USB-C Port",
+      "GPS Tracking",
+      "Bluetooth 5.0",
+      "Customizable EQ",
+      "Voice Assistant Support",
+      "Wi-Fi Connectivity",
+      "Long Battery Life"
+    ]
+  }
+]
